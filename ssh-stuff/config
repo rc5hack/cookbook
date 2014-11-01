@@ -1,0 +1,19 @@
+# ~/.ssh/config: SSH client user's configuration file
+
+# see man ssh_config(5)
+
+Host example
+    Hostname example.com
+    User gary
+    PasswordAuthentication no
+    PubkeyAuthentication yes
+    Compression yes
+
+Host github
+    Hostname github.com
+    User git
+
+Host *
+    ForwardAgent no
+    ForwardX11 no
+    StrictHostKeyChecking yes
