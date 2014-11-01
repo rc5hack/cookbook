@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+MRTG_TMP_DIR=/tmp/mrtg/
+MRTG_TMP_FILE=cputemp.tmp
+
+/bin/mkdir -p -m0755 $MRTG_TMP_DIR
+/usr/bin/touch $MRTG_TMP_DIR$MRTG_TMP_FILE
+
+CPUTEMP0=`/sbin/sysctl -n dev.cpu.0.temperature | grep -Eo '^[0-9]+'`
+CPUTEMP1=`/sbin/sysctl -n dev.cpu.1.temperature | grep -Eo '^[0-9]+'`
+CPUTEMP2=`/sbin/sysctl -n dev.cpu.2.temperature | grep -Eo '^[0-9]+'`
+CPUTEMP3=`/sbin/sysctl -n dev.cpu.3.temperature | grep -Eo '^[0-9]+'`
+
+let "tmp=($CPUTEMP0 + $CPUTEMP1 + $CPUTEMP2 + $CPUTEMP3) / 4"
+AVGTEMP=$tmp
+
+echo $AVGTEMP > $MRTG_TMP_DIR$MRTG_TMP_FILE
+echo 0 >> $MRTG_TMP_DIR$MRTG_TMP_FILE
+echo `/usr/bin/uptime | grep -o 'up.*' | sed -e 's/up //' -e 's/, [0-9] user.*//g'` >> $MRTG_TMP_DIR$MRTG_TMP_FILE
+echo `/bin/hostname` >> $MRTG_TMP_DIR$MRTG_TMP_FILE
+
+cat $MRTG_TMP_DIR$MRTG_TMP_FILE
+
+exit 0

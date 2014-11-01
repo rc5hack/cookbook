@@ -1,0 +1,6 @@
+* * * * * /root/mrtg_cputemp > /dev/null
+* * * * * /root/mrtg_diskspace /usr > /dev/null
+* * * * * /root/mrtg_disktemp > /dev/null
+* * * * * /root/mrtg_load > /dev/null
+* * * * * /root/mrtg_traffic em0 > /dev/null
+* * * * * /root/mrtg_ntpd > /dev/null

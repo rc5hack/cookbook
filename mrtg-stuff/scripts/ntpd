@@ -1,0 +1,18 @@
+#!/bin/sh
+
+MRTG_TMP_DIR=/tmp/mrtg/
+MRTG_TMP_FILE=ntpd.tmp
+
+/bin/mkdir -p -m0755 $MRTG_TMP_DIR
+/usr/bin/touch $MRTG_TMP_DIR$MRTG_TMP_FILE
+
+# NOTE: mrtg does not understand negative values, so we would use abs() of NTP offset
+
+echo 0 > $MRTG_TMP_DIR$MRTG_TMP_FILE
+echo `/usr/bin/ntpq -c rv | egrep -o 'offset=[.0-9+-]+' | egrep -o '[.0-9]+' | awk '{print $1 * 100}'` >> $MRTG_TMP_DIR$MRTG_TMP_FILE
+echo `/usr/bin/uptime | grep -o 'up.*' | sed -e 's/up //' -e 's/, [0-9] user.*//g'` >> $MRTG_TMP_DIR$MRTG_TMP_FILE
+echo `/bin/hostname` >> $MRTG_TMP_DIR$MRTG_TMP_FILE
+
+cat $MRTG_TMP_DIR$MRTG_TMP_FILE
+
+exit 0

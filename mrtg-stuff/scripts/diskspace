@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+MRTG_TMP_DIR=/tmp/mrtg/
+MRTG_TMP_FILE=diskspace.tmp
+
+/bin/mkdir -p -m0755 $MRTG_TMP_DIR
+/usr/bin/touch $MRTG_TMP_DIR$MRTG_TMP_FILE
+
+REGEXP="$1"'$'
+
+FREE=`/bin/df -k | grep "$REGEXP" | awk '{print $4}'`
+let "tmp=$FREE * 1024"
+FREE=$tmp
+
+USED=`/bin/df -k | grep "$REGEXP" | awk '{print $3}'`
+let "tmp=$USED * 1024"
+USED=$tmp
+
+echo $FREE > $MRTG_TMP_DIR$MRTG_TMP_FILE
+echo $USED >> $MRTG_TMP_DIR$MRTG_TMP_FILE
+echo `/usr/bin/uptime | grep -o 'up.*' | sed -e 's/up //' -e 's/, [0-9] user.*//g'` >> $MRTG_TMP_DIR$MRTG_TMP_FILE
+/bin/df | grep "$REGEXP" | awk '{print $1}' >> $MRTG_TMP_DIR$MRTG_TMP_FILE
+
+cat $MRTG_TMP_DIR$MRTG_TMP_FILE
+
+exit 0

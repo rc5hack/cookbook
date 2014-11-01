@@ -1,0 +1,21 @@
+#!/bin/sh
+
+MRTG_TMP_DIR=/tmp/mrtg/
+MRTG_TMP_FILE=traffic.tmp
+
+/bin/mkdir -p -m0755 $MRTG_TMP_DIR
+/usr/bin/touch $MRTG_TMP_DIR$MRTG_TMP_FILE
+
+INFO=`netstat -ib -I $1 | grep Link`
+
+INGOING=`echo ${INFO} | awk {'print $8'}`
+OUTGOING=`echo ${INFO} | awk {'print $11'}`
+
+echo $INGOING > $MRTG_TMP_DIR$MRTG_TMP_FILE
+echo $OUTGOING >> $MRTG_TMP_DIR$MRTG_TMP_FILE
+echo `/usr/bin/uptime | grep -o 'up.*' | sed -e 's/up //' -e 's/, [0-9] user.*//g'` >> $MRTG_TMP_DIR$MRTG_TMP_FILE
+echo `/bin/hostname` >> $MRTG_TMP_DIR$MRTG_TMP_FILE
+
+cat $MRTG_TMP_DIR$MRTG_TMP_FILE
+
+exit 0

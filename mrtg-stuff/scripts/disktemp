@@ -1,0 +1,19 @@
+#!/bin/sh
+
+MRTG_TMP_DIR=/tmp/mrtg/
+MRTG_TMP_FILE=disktemp.tmp
+
+/bin/mkdir -p -m0755 $MRTG_TMP_DIR
+/usr/bin/touch $MRTG_TMP_DIR$MRTG_TMP_FILE
+
+DISCTEMP1=`/usr/local/sbin/smartctl -a /dev/ad24 | grep Temperature_Celsius | awk {'print $10'}`
+DISCTEMP2=`/usr/local/sbin/smartctl -a /dev/ad26 | grep Temperature_Celsius | awk {'print $10'}`
+
+echo $DISCTEMP1 > $MRTG_TMP_DIR$MRTG_TMP_FILE
+echo $DISCTEMP2 >> $MRTG_TMP_DIR$MRTG_TMP_FILE
+echo `/usr/bin/uptime | grep -o 'up.*' | sed -e 's/up //' -e 's/, [0-9] user.*//g'` >> $MRTG_TMP_DIR$MRTG_TMP_FILE
+echo `/bin/hostname` >> $MRTG_TMP_DIR$MRTG_TMP_FILE
+
+cat $MRTG_TMP_DIR$MRTG_TMP_FILE
+
+exit 0
