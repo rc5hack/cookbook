@@ -1,0 +1,27 @@
+[user]
+    name = YourUserName
+    email = name@example.com
+[core]
+    pager = env LESS_IS_MORE=1 less -FRX
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+[color "diff"]
+    meta = white bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+[alias]
+    accept-ours = "!f() { files=\"$@\"; [ -z $files ] && files='.'; git checkout --ours -- $files; git add -u $files; }; f"
+    accept-theirs = "!f() { files=\"$@\"; [ -z $files ] && files='.'; git checkout --theirs -- $files; git add -u $files; }; f"
+    prettylog = "!git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+    ignored = "!git ls-files --others --exclude-standard"
+    undo = "!git reset --soft HEAD^"
+    st = status
+    co = checkout
+    ci = commit
