@@ -1,0 +1,97 @@
+Windows Registry Editor Version 5.00
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; ВНИМАНИЕ! Неосторожная работа с системным реестром Windows  ;
+; может навредить работоспособности Вашего компьютера!        ;
+; Если Вы не знаете, чего хотите - лучше ничего не трогайте!  ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Больше информации о твиках системного реестра Windows 7     ;
+; можно найти на http://www.oszone.net/14162/windows_7_tweaks ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; Включить NumLock при загрузке
+[HKEY_CURRENT_USER\Control Panel\Keyboard]
+"InitialKeyboardIndicators"="2"
+
+; Показывать защищенные системные файлы в "Проводнике"
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"ShowSuperHidden"=dword:00000001
+
+; Добавить NTP сервера (1-5 - системные по умолчанию, 6 и далее - добавленные)
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DateTime\Servers]
+@="1"
+"1"="time.windows.com"
+"2"="time.nist.gov"
+"3"="time-nw.nist.gov"
+"4"="time-a.nist.gov"
+"5"="time-b.nist.gov"
+"6"="ru.pool.ntp.org"
+
+; Производить смену изображений фона рабочего стола в случайном порядке
+[HKEY_CURRENT_USER\Control Panel\Personalization\Desktop Slideshow]
+"Shuffle"=dword:00000001
+
+; Отобразить значок "Корзина" на рабочем столе
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel]
+"{645FF040-5081-101B-9F08-00AA002F954E}"=dword:00000000
+
+; Не создавать ярлык Windows Media Player на рабочем столе
+[HKEY_CURRENT_USER\Software\Microsoft\MediaPlayer\Setup\UserOptions]
+"DesktopShortcut"="no"
+
+; Добавить в контекстное меню файлов и папок пункт "Копировать в папку..."
+[HKEY_CLASSES_ROOT\AllFilesystemObjects\shellex\ContextMenuHandlers\Copy To]
+@="{C2FBB630-2971-11D1-A18C-00C04FD75D13}"
+
+; Добавить в контекстное меню папок пункт "Удалить содержимое папки"
+[HKEY_CLASSES_ROOT\Directory\shell\Удалить содержимое папки]
+[HKEY_CLASSES_ROOT\Directory\shell\Удалить содержимое папки\command]
+@="cmd /c \"cd /d %1 && del /s /q *.*"
+
+; Добавить в контекстное меню дисков пункт "Дефрагментация"
+[HKEY_CLASSES_ROOT\Drive\shell\runas]
+@="Дефрагментация"
+[HKEY_CLASSES_ROOT\Drive\shell\runas\command]
+@="defrag %1 -v"
+
+; Убрать файл .bmp из контекстного меню "Создать"
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\.bmp\ShellNew]
+
+; Добавить в контекстное меню .dll файлов команды Register/UnRegister
+[HKEY_CLASSES_ROOT\.dll]
+"Content Type"="application/x-msdownload"
+@="dllfile"
+[HKEY_CLASSES_ROOT\dllfile]
+@="Application Extension"
+[HKEY_CLASSES_ROOT\dllfile\Shell\Register\command]
+@="regsvr32.exe \"%1\""
+[HKEY_CLASSES_ROOT\dllfile\Shell\UnRegister\command]
+@="regsvr32.exe /u \"%1\""
+
+; Открывать .nfo файлы "Блокнотом"
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.nfo]
+"Application"="NOTEPAD.EXE"
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.nfo\OpenWithList]
+"a"="Explorer.exe"
+"MRUList"="ba"
+"b"="NOTEPAD.EXE"
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.nfo\OpenWithProgids]
+"MSInfoFile"=hex(0):
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.nfo\UserChoice]
+"Progid"="Applications\\NOTEPAD.EXE"
+
+; Добавить "Администрирование" и "Принтеры" в "Мой компьютер"
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{D20EA4E1-3957-11D2-A40B-0C5020524153}]
+@="Administrative Tools"
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{2227A280-3AEA-1069-A2DE-08002B30309D}]
+@="Printers and Faxes"
+
+; Отобразить "Загрузки" в меню "Пуск"
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"Start_ShowDownloads"=dword:00000001
+
+; Убрать "Игры", "Музыку" и "Изображения" из меню "Пуск"
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"Start_ShowMyGames"=dword:00000000
+"Start_ShowMyMusic"=dword:00000000
+"Start_ShowMyPics"=dword:00000000
