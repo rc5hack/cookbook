@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Usage: hwid
+# Display checksum specific to your hardware.
+# Could be used to make identifiers for numerous workstations.
+
+# have to be superuser
+if [ "$(id -u)" != "0" ]; then
+    echo "Sorry, you are not root."
+    echo "Either become root, or try sudo."
+    exit 1
+fi
+
+# avoid to be bigger than MAX_INT (due to shitty SQL problems), so cut cksum(1) output to 9 digits
+HW_CKSUM=`dmidecode | grep ID | cksum`
+echo ${HW_CKSUM:0:9}
