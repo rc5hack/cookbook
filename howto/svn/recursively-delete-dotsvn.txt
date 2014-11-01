@@ -1,0 +1,7 @@
+# RECURSIVELY delete .svn directories into this directory using find(1):
+
+find . -name '.svn' -type d -print0 | xargs -0 rm -rf
+
+# same stuff for Windows:
+
+for /d /r "." %d in (.svn) do @if exist "%d" rd /s/q "%d"
