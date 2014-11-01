@@ -1,0 +1,13 @@
+git checkout -b private_feature_branch
+
+touch file1.txt
+git add file1.txt
+git commit -am "stage 1"
+
+touch file2.txt
+git add file2.txt
+git commit -am "stage 2"
+
+git checkout master
+git merge --squash private_feature_branch
+git commit -v
