@@ -1,0 +1,8 @@
+-Xms128m
+-Xmx1024m
+-XX:MaxPermSize=512m
+-XX:ReservedCodeCacheSize=128m
+-XX:+UseCodeCacheFlushing
+-ea
+-Dsun.io.useCanonCaches=false
+-Djava.net.preferIPv4Stack=true
