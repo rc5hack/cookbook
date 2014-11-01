@@ -1,0 +1,73 @@
+# install PHP 5.2.17 from sources on FreeBSD, with PHP 5.3.x already installed from ports
+# (it allows to run 5.2 and 5.3 for different virtual hosts)
+
+mkdir -p /tmp/php52-building
+
+cd /tmp/php52-building
+
+fetch http://museum.php.net/php5/php-5.2.17.tar.bz2
+
+bzip2 -d php-5.2.17.tar.bz2
+
+tar -xvf php-5.2.17.tar
+
+cd ./php-5.2.17
+
+./configure \
+\
+--with-layout=GNU \
+--with-regex=php \
+--with-zend-vm=CALL \
+--enable-zend-multibyte \
+--build=FreeBSD-amd64 \
+--prefix=/usr/local/php52 \
+--exec-prefix=/usr/local/php52 \
+--with-config-file-scan-dir=/usr/local/php52/etc/php \
+\
+--enable-mod-charset \
+--enable-fastcgi \
+--enable-libgcc \
+--with-libxml-dir=/usr/local/include/libxml2/libxml/ \
+--enable-ftp \
+--with-mysql=/usr/local/include/mysql/ \
+--with-xsl=/usr/local/include/libxslt/ \
+--with-pdo-mysql \
+--enable-mbstring \
+--with-curl \
+--disable-short-tags \
+--disable-ipv6 \
+--enable-bcmath \
+--with-curl=/usr/local/include/curl/ \
+--with-bz2 \
+--enable-exif \
+--enable-ftp \
+--with-gd \
+--with-png-dir \
+--with-jpeg-dir \
+--with-zlib-dir \
+--with-freetype-dir \
+--with-gettext \
+--enable-mbstring \
+--with-mcrypt \
+--with-mhash \
+--with-mysqli \
+--with-xmlrpc \
+--enable-soap \
+--enable-sockets \
+--enable-zip
+
+make
+
+make install
+
+cd
+
+rm -rf /tmp/php52-building
+
+/usr/local/php52/bin/pecl install timezonedb
+/usr/local/php52/bin/pecl install geoip
+
+mkdir /usr/local/php52/etc/php
+
+echo "extension=timezonedb.so" > /usr/local/php52/etc/php/extensions.ini
+echo "extension=geoip.so" >> /usr/local/php52/etc/php/extensions.ini
