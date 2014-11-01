@@ -1,0 +1,15 @@
+# List of domains which should not be allowed as a part of e-mail addresses
+# for such user activity, that would cause automatic mail sending to user's
+# e-mail (e.g. registration on some website).
+
+# 1. Social web services
+# (e-mails to those domains would be automatically published as a message
+# that anybody could read on some website)
+post.vk.com
+tweetymail.com
+yahoogroups.com
+
+# 2. Mail lists
+# (e-mails to those domains would be delivered to numerous recepients, and,
+# probably, automatically published on some website)
+lists.php.net
