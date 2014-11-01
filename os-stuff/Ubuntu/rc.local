@@ -1,0 +1,34 @@
+#!/bin/sh -e
+#
+# /etc/rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+
+echo
+echo '***********************************************************'
+echo 'Processing /etc/rc.local...'
+echo
+
+# increase priority of Xorg
+#renice -n -1 $(pidof X)
+
+# non-starting slim(1) workaround
+# (yeah, that is dirty hack, and I'm don't fucking know why it works)
+#echo
+#echo '***********************************************************'
+#echo 'Now trying to perform lightdm & slim -related workaround...'
+#echo
+#sleep 5 && service lightdm start && sleep 5 && service lightdm stop
+
+echo
+echo 'Processing /etc/rc.local............................  Done!'
+echo '***********************************************************'
+echo
+
+exit 0
