@@ -1,0 +1,14 @@
+# assuming that there is 512-byte DOS-like MBR/MBS on /dev/sda
+# (see http://en.wikipedia.org/wiki/Master_boot_record)
+
+
+# backup MBR from disk to file:
+dd if=/dev/sda of=./mbr-backup.bin bs=512 count=1
+
+# restore MBR from file to disk:
+dd if=./mbr-backup.bin of=/dev/sda bs=512 count=1
+
+# delete MBR from disk:
+dd if=/dev/zero of=/dev/sda bs=512 count=1
+
+# NOTE: some BSD-like systems would resist your attempts to shoot in the foot.

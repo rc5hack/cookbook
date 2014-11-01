@@ -1,0 +1,14 @@
+# assuming that there is 512-byte DOS-like MBR/MBS on /dev/sda
+# (see http://en.wikipedia.org/wiki/Master_boot_record)
+
+
+# backup bootcode from disk to file:
+dd if=/dev/sda of=./bootcode-backup.bin bs=446 count=1
+
+# restore bootcode from file to disk:
+dd if=./bootcode-backup.bin of=/dev/sda bs=446 count=1
+
+# delete bootcode from disk:
+dd if=/dev/zero of=/dev/sda bs=446 count=1
+
+# NOTE: some BSD-like systems would resist your attempts to shoot in the foot.
