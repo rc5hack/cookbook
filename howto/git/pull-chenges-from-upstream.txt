@@ -1,0 +1,16 @@
+# If there is RepoName repository on ProgrammerName's GitHub, and you fork it,
+# so you get YourGitHub/YourRepoName repository, and then initial author add some
+# commits to ProgrammerName/RepoName, you could get them into your repository:
+
+# First way (using rebase, or fast-forward if possible):
+
+git remote add upstream git@github.com:ProgrammerName/RepoName.git
+git fetch upstream
+git rebase upstream/master
+git push origin master --force
+
+# Other way (using merge, or fast-forward if possible):
+
+git remote add upstream git@github.com:ProgrammerName/RepoName.git
+git pull upstream master
+git push origin master
