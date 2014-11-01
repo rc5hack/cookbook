@@ -1,0 +1,6 @@
+mv ~/.ssh/id_rsa ~/.ssh/id_rsa.old
+openssl pkcs8 -topk8 -v2 des3 -in ~/.ssh/id_rsa.old -out ~/.ssh/id_rsa
+chmod 600 ~/.ssh/id_rsa
+
+# now check that all works fine and delete backup
+rm ~/.ssh/id_rsa.old
