@@ -1,0 +1,13 @@
+# ~/.inputrc: readline initialization file.
+# (you can view all current assignments by runnig `bind -lpvs`)
+
+# let Insert, PageUP, PageDown keys work properly in bash under FreeBSD and Linux:
+"\e[2~": overwrite-mode
+"\e[5~": beginning-of-history
+"\e[6~": end-of-history
+
+# let Ctrl-left-arrow and Ctrl-right-arrow jump over words:
+"\e[1;5C": forward-word
+"\eOC": forward-word
+"\e[1;5D": backward-word
+"\eOD": backward-word
