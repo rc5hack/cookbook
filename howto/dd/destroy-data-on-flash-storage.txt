@@ -1,0 +1,2 @@
+dd if=/dev/urandom of=/dev/da0 bs=1M
+dd if=/dev/zero of=/dev/da0 bs=1M
