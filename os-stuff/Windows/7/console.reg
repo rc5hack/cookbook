@@ -1,0 +1,17 @@
+Windows Registry Editor Version 5.00
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; ВНИМАНИЕ! Неосторожная работа с системным реестром Windows  ;
+; может навредить работоспособности Вашего компьютера!        ;
+; Если Вы не знаете, чего хотите - лучше ничего не трогайте!  ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; Настройка параметров консоли (cmd.exe)
+[-HKEY_CURRENT_USER\Console\%SystemRoot%_system32_cmd.exe]
+[HKEY_CURRENT_USER\Console\%SystemRoot%_system32_cmd.exe]
+"FontSize"=dword:000c0000
+"FontFamily"=dword:00000036
+"FontWeight"=dword:00000190
+"FaceName"="Lucida Console"
+"ColorTable15"=dword:00f0f0f0
+"ScreenColors"=dword:0000000f
