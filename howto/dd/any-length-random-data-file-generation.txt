@@ -1,0 +1,3 @@
+# That will generate 1 GiB file with random data:
+
+dd if=/dev/urandom of=~/random.bin bs=1M count=1024
