@@ -81,3 +81,6 @@ alias nohistoryplease='history -c && unset HISTFILE'
 
 # just a kidding
 alias bitch,='sudo'
+
+# commit a suicide
+alias suicide='kill -9 $$'
