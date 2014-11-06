@@ -24,7 +24,11 @@ alias grep='grep --color'
 alias egrep='egrep --color'
 alias fgrep='fgrep --color'
 
+alias scp='scp -2'
+alias scp-fast='scp -c arcfour'
+
 alias ssh='ssh -2'
+alias ssh-fast='ssh -c arcfour'
 
 alias ping='ping -v'
 
