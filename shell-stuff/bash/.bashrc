@@ -23,6 +23,9 @@ HISTTIMEFORMAT='%F %T '
 # ignoreboth = ignorespace + ignoredups
 HISTCONTROL=ignoreboth
 HISTIGNORE='pwd:history:exit:fg:* --help'
+# do not immediately pass the results of history substitution to the shell parser
+# instead, load it to editing buffer, allowing further modification
+shopt -sq histverify
 
 # include .bash_aliases if it exists
 if [ -f ~/.bash_aliases ]; then
