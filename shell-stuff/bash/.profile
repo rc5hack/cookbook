@@ -13,6 +13,6 @@ exists() {
 # locale for formatting numbers - keep POSIX (default)
 export LC_NUMERIC=POSIX
 
-# let debchange(1) and other deb-related tools know hwo you are
+# let debchange(1) and other deb-related tools know who you are
 export DEBFULLNAME=YourUserName
 export DEBEMAIL="name@example.com"
