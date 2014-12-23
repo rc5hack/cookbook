@@ -1,7 +1,8 @@
-" Turn on syntax highlighting
-syntax on
+" Set up colors and highlighting
+syntax on " syntax highlighting
+set cursorline " cursor highlighting
+set hlsearch " search results highlighting
 
-" Set up colors
 if has('gui_running')
     set background=light
 else
