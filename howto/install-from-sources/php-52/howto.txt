@@ -1,6 +1,7 @@
 # install PHP 5.2.17 from sources on FreeBSD, with PHP 5.3.x already installed from ports
 # (it allows to run 5.2 and 5.3 for different virtual hosts)
-# lang/gcc required to compile this
+# GCC (GNU Compiler Collection) is required to compile this
+# note that GCC and C++ standard library (libstdc++) are no longer built as part of the base system since FreeBSD 10.0
 
 mkdir -p /tmp/php52-building
 
