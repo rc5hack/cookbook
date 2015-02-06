@@ -1,6 +1,7 @@
 # ~/.ssh/config: SSH client user's configuration file
 
 # see man ssh_config(5)
+# see https://gist.github.com/rc5hack/6111879 for multiple-SSH-keys config
 
 Host example
     Hostname example.com
