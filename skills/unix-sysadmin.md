@@ -7,6 +7,7 @@ POSIX и другие стандарты и базовые сущности
 * PCRE, BRE/ERE
 * UNIX timestamp, tzdata, leap seconds
 * posix shell (signals, exit codes, pid, kill)
+* locales
 * runlevels
 * UNIX sockets
 
