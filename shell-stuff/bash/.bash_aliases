@@ -13,6 +13,7 @@ alias du='du -h'
 alias lesr='less -r'
 
 alias h='history'
+alias hgrep='history | grep'
 
 alias path='echo -e ${PATH//:/\\n}'
 
