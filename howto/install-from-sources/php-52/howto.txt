@@ -2,6 +2,8 @@
 # (it allows to run 5.2 and 5.3 for different virtual hosts)
 # GCC (GNU Compiler Collection) is required to compile this
 # note that GCC and C++ standard library (libstdc++) are no longer built as part of the base system since FreeBSD 10.0
+#
+# Dependencies (pre-install them): autoconf libxml2 curl jpeg png freetype2 gettext mcrypt mysql55-client libxslt
 
 mkdir -p /tmp/php52-building
 
