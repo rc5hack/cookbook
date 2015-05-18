@@ -41,6 +41,12 @@ apt-get -y --force-yes install \
     libssl-dev\
     libssl-doc
 
+# installing Dropbox from repo:
+#lsb_release -c | awk '{print "deb http://linux.dropbox.com/ubuntu " $2 " main"}' >> /etc/apt/sources.list
+#apt-key adv --keyserver pgp.mit.edu --recv-keys 5044912E
+#apt-get update
+#apt-get -y --force-yes install python-gpgme dropbox
+
 # for building "default settings" package for Ubuntu to use in a customized image:
 #apt-get -y --force-yes install ubuntu-defaults-builder
 
