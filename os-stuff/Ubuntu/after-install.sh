@@ -34,6 +34,8 @@ apt-get -y --force-yes install \
     unrar\
     p7zip-full
 
+apt-get -y install mtr-tiny || apt-get -y install mtr
+
 # remember of heartbleed bug:
 apt-get -y --force-yes install \
     openssl\
