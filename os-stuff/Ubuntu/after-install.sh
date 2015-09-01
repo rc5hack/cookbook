@@ -11,6 +11,7 @@ apt-get -y --force-yes upgrade
 dpkg --purge \
     kontact\
     kwalletmanager\
+    pam-kwallet\
     brltty\
     ttf-indic-fonts-core\
     ttf-kacst-one\
