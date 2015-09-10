@@ -10,6 +10,11 @@ apt-get -y --force-yes upgrade
 
 dpkg --purge \
     kontact\
+    kaddressbook\
+    kate\
+    knotes\
+    kmail\
+    korganizer\
     kwalletmanager\
     pam-kwallet\
     brltty\
