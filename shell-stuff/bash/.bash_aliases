@@ -81,11 +81,11 @@ else
     screen -S ALIVE_SCREEN ;
 fi'
 
-# do not write history
-alias nohistoryplease='history -c && unset HISTFILE'
-
 # just a kidding
 alias bitch,='sudo'
 
 # commit a suicide
 alias suicide='kill -9 $$'
+
+# take French leave
+alias french_exit='unset HISTFILE && exit'
