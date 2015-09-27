@@ -55,9 +55,6 @@ apt-get -y --force-yes install \
 #apt-get update
 #apt-get -y --force-yes install python-gpgme dropbox
 
-# for building "default settings" package for Ubuntu to use in a customized image:
-#apt-get -y --force-yes install ubuntu-defaults-builder
-
 # for nvidia videocards:
 #apt-get -y --force-yes install nvidia-current-updates nvidia-settings-updates
 
