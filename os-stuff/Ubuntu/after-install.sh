@@ -49,6 +49,9 @@ apt-get -y --force-yes install \
     libssl-dev\
     libssl-doc
 
+# installing Windows fonts from repo:
+#apt-get -y --force-yes install msttcorefonts && fc-cache -fv
+
 # installing Dropbox from repo:
 #lsb_release -c | awk '{print "deb http://linux.dropbox.com/ubuntu " $2 " main"}' >> /etc/apt/sources.list
 #apt-key adv --keyserver pgp.mit.edu --recv-keys 5044912E
