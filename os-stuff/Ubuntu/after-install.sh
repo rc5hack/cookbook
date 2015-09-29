@@ -38,9 +38,9 @@ apt-get -y --force-yes install \
     mc\
     screen\
     tmux\
-    unrar\
     p7zip-full
 
+apt-get -y install unrar || apt-get -y install unrar-free
 apt-get -y install mtr-tiny || apt-get -y install mtr
 
 if [ ! -s $DISPLAY ]; then apt-get -y install vncviewer; else echo "No X found - so don't install vncviewer"; fi;
