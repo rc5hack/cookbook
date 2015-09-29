@@ -31,7 +31,6 @@ apt-get -y --force-yes install \
     htop\
     ssh\
     autossh\
-    vncviewer\
     vim\
     curl\
     links\
@@ -43,6 +42,8 @@ apt-get -y --force-yes install \
     p7zip-full
 
 apt-get -y install mtr-tiny || apt-get -y install mtr
+
+if [ ! -s $DISPLAY ]; then apt-get -y install vncviewer; else echo "No X found - so don't install vncviewer"; fi;
 
 # remember of heartbleed bug:
 apt-get -y --force-yes install \
