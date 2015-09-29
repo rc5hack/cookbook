@@ -27,6 +27,8 @@ dpkg --purge \
 apt-get -y --force-yes install \
     dkms\
     acpi\
+    tree\
+    htop\
     ssh\
     autossh\
     vncviewer\
