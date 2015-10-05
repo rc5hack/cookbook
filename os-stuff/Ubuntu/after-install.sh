@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# (K)Ubuntu after-install script. Suitable for server and desktop environments.
+# HOWTO: just run this script with root privileges.
+# cd && curl -Lo after-install.sh https://raw.githubusercontent.com/rc5hack/cookbook/master/os-stuff/Ubuntu/after-install.sh && chmod 700 ./after-install.sh && sudo ./after-install.sh
+
 if [ "$(id -u)" != "0" ]; then
     echo "You must be root to run this script!"
     exit 1
