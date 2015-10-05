@@ -25,7 +25,6 @@ dpkg --purge \
     ttf-punjabi-fonts
 
 apt-get -y --force-yes install \
-    dkms\
     acpi\
     tree\
     htop\
