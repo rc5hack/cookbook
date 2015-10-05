@@ -48,8 +48,7 @@ if [ ! -s $DISPLAY ]; then apt-get -y install vncviewer; else echo "No X found -
 apt-get -y --force-yes install \
     openssl\
     libssl1.0.0\
-    libssl-dev\
-    libssl-doc
+    libssl-dev
 
 # installing Windows fonts from repo:
 #apt-get -y install msttcorefonts && fc-cache -fv
