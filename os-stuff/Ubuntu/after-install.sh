@@ -13,6 +13,7 @@ apt-get -y update
 #apt-get -y --force-yes upgrade
 
 dpkg --purge \
+    baloo\
     kontact\
     kaddressbook\
     kate\
