@@ -1,0 +1,15 @@
+mkdir -p /etc/pki/tls/certs /etc/pki/tls/private
+cd /etc/pki/tls
+
+CERT_CN='*.example.ru'
+CERT_FILE=`echo $CERT_CN | sed -e 's/\*/WILDCARD/g'`
+
+rm -f -- ./private/$CERT_FILE.key && openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:2048 -out ./private/$CERT_FILE.key
+rm -f -- ./private/$CERT_FILE.csr && openssl req -new -key ./private/$CERT_FILE.key -out ./private/$CERT_FILE.csr -subj "/C=RU/ST=Moscow/L=Moscow/O=Self-Signed Certification Organization/OU=IT dept./CN=$CERT_CN"
+rm -f -- ./certs/$CERT_FILE.pem && openssl x509 -req -sha256 -days 1541 -in ./private/$CERT_FILE.csr -signkey ./private/$CERT_FILE.key -out ./certs/$CERT_FILE.pem
+rm -f -- ./private/$CERT_FILE.dhparam.pem && openssl dhparam -out ./private/$CERT_FILE.dhparam.pem 2048
+cp -- ./certs/$CERT_FILE.pem ./certs/$CERT_FILE.pem.without-dh && cat ./private/$CERT_FILE.dhparam.pem >> ./certs/$CERT_FILE.pem
+LC_ALL=C chmod -v -- 600 ./certs/$CERT_FILE.* ./private/$CERT_FILE.*
+
+# check:
+openssl x509 -in ./certs/$CERT_FILE.pem -text -noout
