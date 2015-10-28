@@ -14,5 +14,5 @@ exists() {
 export LC_NUMERIC=POSIX
 
 # let debchange(1) and other deb-related tools know who you are
-export DEBFULLNAME=YourUserName
-export DEBEMAIL="name@example.com"
+#export DEBFULLNAME=YourUserName
+#export DEBEMAIL="name@example.com"
