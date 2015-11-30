@@ -22,6 +22,7 @@ dpkg --purge \
     korganizer\
     kwalletmanager\
     pam-kwallet\
+    modemmanager\
     brltty\
     ttf-indic-fonts-core\
     ttf-kacst-one\
