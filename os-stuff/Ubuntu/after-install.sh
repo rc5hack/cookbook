@@ -43,18 +43,14 @@ apt-get -y install \
     mc\
     screen\
     tmux\
-    p7zip-full
+    p7zip-full\
+    openssl\
+    libssl-dev
 
 apt-get -y install unrar || apt-get -y install unrar-free
 apt-get -y install mtr-tiny || apt-get -y install mtr
 
 if [ ! -s $DISPLAY ]; then apt-get -y install vncviewer; else echo "No X found - so don't install vncviewer"; fi;
-
-# remember of heartbleed bug:
-apt-get -y --force-yes install \
-    openssl\
-    libssl1.0.0\
-    libssl-dev
 
 # installing Windows fonts from repo:
 #apt-get -y install msttcorefonts && fc-cache -fv
