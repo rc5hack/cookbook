@@ -53,7 +53,10 @@ apt-get -y install mtr-tiny || apt-get -y install mtr
 
 if [ ! -s $DISPLAY ]; then apt-get -y install vncviewer; else echo "No X found - so don't install vncviewer"; fi;
 
-# installing Windows fonts from repo:
+# installing font for Emoji support:
+apt-get -y install ttf-ancient-fonts
+
+# installing Windows fonts:
 #apt-get -y install msttcorefonts && fc-cache -fv
 
 # installing Dropbox from repo:
