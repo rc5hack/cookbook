@@ -10,7 +10,6 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 apt-get -y update
-#apt-get -y --force-yes upgrade
 
 dpkg --purge \
     baloo\
@@ -29,6 +28,8 @@ dpkg --purge \
     ttf-khmeros-core\
     ttf-lao\
     ttf-punjabi-fonts
+
+#apt-get -y --force-yes upgrade
 
 apt-get -y install \
     acpi\
