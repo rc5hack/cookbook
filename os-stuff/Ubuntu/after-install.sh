@@ -74,6 +74,9 @@ apt-get -y install ttf-ancient-fonts
 # for kvm virtualization:
 #apt-get -y install qemu qemuctl
 
+# disable dnsmasq:
+sed -e '/dns=dnsmasq/ s/^#*/#/' -i /etc/NetworkManager/NetworkManager.conf
+
 apt-get -y autoremove
 
 mkdir -p ~/.compose-cache
