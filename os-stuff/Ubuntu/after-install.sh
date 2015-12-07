@@ -75,7 +75,7 @@ apt-get -y install ttf-ancient-fonts
 #apt-get -y install qemu qemuctl
 
 # disable dnsmasq:
-sed -e '/dns=dnsmasq/ s/^#*/#/' -i /etc/NetworkManager/NetworkManager.conf
+[ -f /etc/NetworkManager/NetworkManager.conf ] && sed -e '/dns=dnsmasq/ s/^#*/#/' -i /etc/NetworkManager/NetworkManager.conf
 
 apt-get -y autoremove
 
