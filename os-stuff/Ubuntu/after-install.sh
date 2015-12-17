@@ -60,7 +60,7 @@ apt-get -y install ttf-ancient-fonts
 #apt-get -y install msttcorefonts && fc-cache -fv
 
 # installing Dropbox from repo:
-#lsb_release -c | awk '{print "deb http://linux.dropbox.com/ubuntu " $2 " main"}' >> /etc/apt/sources.list
+#add-apt-repository "deb http://linux.dropbox.com/ubuntu $(lsb_release -sc) main"
 #apt-key adv --keyserver pgp.mit.edu --recv-keys 5044912E
 #apt-get update
 #apt-get -y install python-gpgme dropbox
