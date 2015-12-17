@@ -65,6 +65,9 @@ apt-get -y install ttf-ancient-fonts
 #apt-get update
 #apt-get -y install python-gpgme dropbox
 
+# installing newer version of LibreOffice:
+#add-apt-repository ppa:libreoffice/ppa && apt-get update
+
 # for nvidia videocards:
 #apt-get -y install nvidia-current-updates nvidia-settings-updates
 
