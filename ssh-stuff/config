@@ -18,3 +18,4 @@ Host *
     ForwardAgent no
     ForwardX11 no
     StrictHostKeyChecking yes
+    UseRoaming no
