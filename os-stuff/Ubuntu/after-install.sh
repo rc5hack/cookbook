@@ -32,6 +32,7 @@ dpkg --purge \
 #apt-get -y --force-yes upgrade
 
 apt-get -y install \
+    dar\
     acpi\
     tree\
     htop\
