@@ -42,6 +42,7 @@ apt-get -y install \
     curl\
     links\
     whois\
+    traceroute\
     mc\
     screen\
     tmux\
