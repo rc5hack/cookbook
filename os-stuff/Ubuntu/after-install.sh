@@ -29,6 +29,8 @@ dpkg --purge \
     ttf-lao\
     ttf-punjabi-fonts
 
+#echo $(dpkg -l | grep linux-image | awk '{ print $2 }' | sort -V | sed -n '/'`uname -r`'/q;p') $(dpkg -l | grep linux-headers | awk '{ print $2 }' | sort -V | sed -n '/'"$(uname -r | sed "s/\([0-9.-]*\)-\([^0-9]\+\)/\1/")"'/q;p') | xargs apt-get -y purge
+
 #apt-get -y --force-yes upgrade
 
 apt-get -y install \
