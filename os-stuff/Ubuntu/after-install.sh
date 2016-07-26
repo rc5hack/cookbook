@@ -9,6 +9,8 @@ if [ "$(id -u)" != "0" ]; then
     exit 1
 fi
 
+locale-gen en_US en_US.UTF-8 ru_RU ru_RU.UTF-8
+
 apt-get -y update
 
 dpkg --purge \
