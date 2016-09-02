@@ -14,21 +14,21 @@ locale-gen en_US en_US.UTF-8 ru_RU ru_RU.UTF-8
 apt-get -y update
 
 dpkg --purge \
-    baloo\
-    kontact\
-    kaddressbook\
-    kate\
-    knotes\
-    kmail\
-    korganizer\
-    kwalletmanager\
-    pam-kwallet\
-    modemmanager\
-    brltty\
-    ttf-indic-fonts-core\
-    ttf-kacst-one\
-    ttf-khmeros-core\
-    ttf-lao\
+    baloo \
+    kontact \
+    kaddressbook \
+    kate \
+    knotes \
+    kmail \
+    korganizer \
+    kwalletmanager \
+    pam-kwallet \
+    modemmanager \
+    brltty \
+    ttf-indic-fonts-core \
+    ttf-kacst-one \
+    ttf-khmeros-core \
+    ttf-lao \
     ttf-punjabi-fonts
 
 #echo $(dpkg -l | grep linux-image | awk '{ print $2 }' | sort -V | sed -n '/'`uname -r`'/q;p') $(dpkg -l | grep linux-headers | awk '{ print $2 }' | sort -V | sed -n '/'"$(uname -r | sed "s/\([0-9.-]*\)-\([^0-9]\+\)/\1/")"'/q;p') | xargs apt-get -y purge
@@ -36,22 +36,22 @@ dpkg --purge \
 #apt-get -y --force-yes upgrade
 
 apt-get -y install \
-    dar\
-    acpi\
-    tree\
-    htop\
-    ssh\
-    autossh\
-    vim\
-    curl\
-    links\
-    whois\
-    traceroute\
-    mc\
-    screen\
-    tmux\
-    p7zip-full\
-    openssl\
+    dar \
+    acpi \
+    tree \
+    htop \
+    ssh \
+    autossh \
+    vim \
+    curl \
+    links \
+    whois \
+    traceroute \
+    mc \
+    screen \
+    tmux \
+    p7zip-full \
+    openssl \
     libssl-dev
 
 apt-get -y install unrar || apt-get -y install unrar-free
