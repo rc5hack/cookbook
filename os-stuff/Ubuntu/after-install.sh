@@ -35,7 +35,7 @@ dpkg --purge \
 
 #apt-get -y --force-yes upgrade
 
-apt-get -y install --no-install-recommends -- \
+apt-get -y --no-install-recommends install -- \
     dar \
     acpi \
     tree \
@@ -54,8 +54,8 @@ apt-get -y install --no-install-recommends -- \
     openssl \
     libssl-dev
 
-apt-get -y install --no-install-recommends -- unrar    || apt-get -y install --no-install-recommends -- unrar-free
-apt-get -y install --no-install-recommends -- mtr-tiny || apt-get -y install --no-install-recommends -- mtr
+apt-get -y --no-install-recommends install -- unrar    || apt-get -y --no-install-recommends install -- unrar-free
+apt-get -y --no-install-recommends install -- mtr-tiny || apt-get -y --no-install-recommends install -- mtr
 
 if [ ! -s $DISPLAY ]; then apt-get -y install vncviewer; else echo "No X found - so don't install vncviewer"; fi;
 
