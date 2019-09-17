@@ -14,3 +14,10 @@ git push origin master --force
 git remote add upstream git@github.com:ProgrammerName/RepoName.git
 git pull upstream master
 git push origin master
+
+# Or even this way
+
+git remote add upstream git@github.com:ProgrammerName/RepoName.git
+git fetch upstream master
+git merge <specific_commit_hash>
+git push origin master
