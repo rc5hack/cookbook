@@ -1,0 +1,15 @@
+# assuming that disk Q: is removable disk (USB-drive, etc.)
+# and you DO NOT WANT Windows to use System Volume Information folder on this disk
+# 
+# 1. Delete contents of System Volume Information folder
+# 2. Delete the folder itself
+# 3. Create a new file with name System Volume Information
+# 4. Make the file read-only, system and hidden
+# 
+# @see https://www.computerhope.com/attribhl.htm
+# 
+# run in elevated command prompt (with administrator rights):
+
+del /S /Q "Q:\System Volume Information" && rmdir "Q:\System Volume Information"
+
+fsutil file createnew "Q:\System Volume Information" 0 && attrib +s +h +r "Q:\System Volume Information"
