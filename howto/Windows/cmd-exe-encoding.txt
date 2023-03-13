@@ -1,0 +1,13 @@
+@REM @see https://stackoverflow.com/questions/1259084/
+
+C:\>chcp
+Текущая кодовая страница: 866
+
+C:\>chcp 866
+Текущая кодовая страница: 866
+
+C:\>chcp 1251
+Текущая кодовая страница: 1251
+
+C:\>chcp 65001
+Active code page: 65001
