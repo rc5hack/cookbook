@@ -1,0 +1,8 @@
+@see https://superuser.com/questions/251470/
+@use https://unxutils.sourceforge.net/
+
+chcp 1251
+
+.\uu\find f:\ -type f -exec .\uu\touch \"{}\" ;
+
+.\uu\find f:\ -type f -exec .\uu\touch -t 010100012023 \"{}\" ;
