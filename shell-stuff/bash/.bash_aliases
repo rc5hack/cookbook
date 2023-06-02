@@ -17,7 +17,7 @@ alias hgrep='history | grep'
 
 alias path='echo -e ${PATH//:/\\n}'
 
-alias publickey='cat ~/.ssh/id_rsa.pub'
+alias publickey='cat ~/.ssh/id_rsa.pub 2> /dev/null || cat ~/.ssh/id_ecdsa.pub 2> /dev/null'
 
 alias apache_vhosts='apachectl -t -D DUMP_VHOSTS'
 
