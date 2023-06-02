@@ -28,3 +28,9 @@ Windows Registry Editor Version 5.00
 ; (this would prevent Windows from creating "System Volume Information\IndexerVolumeGuid" files)
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search]
 "DisableRemovableDriveIndexing"=dword:00000001
+
+; Remove AMD Radeon Software items from Explorer context menu
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Directory\background\shellex\ContextMenuHandlers\ACE]
+;[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions]
+;[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked]
+;"{FDADFEE3-02D1-4E7C-A511-380F4C98D73B}"=""
