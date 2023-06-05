@@ -46,7 +46,6 @@ alias gerp='grep'
 alias wcat='wget --no-dns-cache -q -O -'
 alias dog='wcat'
 alias headers='curl -I'
-alias headersc='headers --compress'
 
 # ifconfig.me
 alias whatismyip='curl -- http://ifconfig.me/ip'
