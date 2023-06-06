@@ -11,7 +11,7 @@ fi
 
 locale-gen en_US en_US.UTF-8 ru_RU ru_RU.UTF-8
 
-apt-get -y update
+apt-get -qq update
 
 dpkg --purge \
     baloo \
