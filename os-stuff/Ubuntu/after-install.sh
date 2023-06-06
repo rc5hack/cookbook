@@ -36,6 +36,7 @@ dpkg --purge \
 #apt-get -y --force-yes upgrade
 
 apt-get -y --no-install-recommends install -- \
+    ca-certificates \
     dar \
     acpi \
     tree \
