@@ -21,6 +21,8 @@ alias publickey='cat ~/.ssh/id_rsa.pub 2> /dev/null || cat ~/.ssh/id_ecdsa.pub 2
 
 alias apache_vhosts='apachectl -t -D DUMP_VHOSTS'
 
+alias dc='docker-compose'
+
 alias grep='grep --color'
 alias egrep='egrep --color'
 alias fgrep='fgrep --color'
