@@ -2,7 +2,7 @@
 
 # kill ssh-agent, if there is
 if [ -n "$SSH_AUTH_SOCK" ] ; then
-  [ -x /usr/bin/ssh-agent ] && eval `/usr/bin/ssh-agent -k`
+    [ -x /usr/bin/ssh-agent ] && eval `/usr/bin/ssh-agent -k`
 fi
 
 # when leaving the console clear the screen to increase privacy
