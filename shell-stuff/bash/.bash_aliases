@@ -33,6 +33,8 @@ alias scp-fast='scp -c arcfour'
 alias ssh='ssh -2'
 alias ssh-fast='ssh -c arcfour'
 
+alias check-for-ssh-agent='[ -x "$(command -v ssh-add)" ] && (ssh-add -l >/dev/null 2>&1 || ssh-add)'
+
 alias ping='ping -v'
 
 # tar for dummies

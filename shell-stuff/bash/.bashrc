@@ -3,18 +3,18 @@
 # Skip this config if we aren't in bash
 [[ -n "${BASH_VERSION}" ]] || return
 
+# automatically start ssh-agent on login
+if [ -z "$SSH_AUTH_SOCK" ]; then
+    [ -x "$(command -v ssh-agent)" ] && eval `ssh-agent -s`
+    trap "kill $SSH_AGENT_PID" 0
+fi
+
 # SSH agent admitted failure to sign using the key workaround
 # see https://bugs.launchpad.net/ubuntu/+source/gnome-keyring/+bug/201786
 #export SSH_AUTH_SOCK=0
 
 # Skip the rest if we aren't in interactive shell
 if [ -z "${PS1}" -a "$-" != "*i*" ]; then return; fi
-
-# wrappers
-ssh () {
-    ssh-add -l | grep 'The agent has no identities.' 2>&1 > /dev/null && ssh-add
-    /usr/bin/env ssh "$@"
-}
 
 # history
 HISTSIZE=32768
