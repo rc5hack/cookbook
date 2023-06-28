@@ -4,6 +4,8 @@
 # HOWTO: just run this script with root privileges.
 # cd && curl -Lo after-install.sh https://raw.githubusercontent.com/rc5hack/cookbook/master/os-stuff/Ubuntu/after-install.sh && chmod 700 ./after-install.sh && sudo ./after-install.sh
 
+set -eu
+
 if [ "$(id -u)" != "0" ]; then
     echo "You must be root to run this script!"
     exit 1
