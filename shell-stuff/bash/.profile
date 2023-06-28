@@ -13,6 +13,10 @@ exists() {
 # locale for formatting numbers - keep POSIX (default)
 export LC_NUMERIC=POSIX
 
-# let debchange(1) and other deb-related tools know who you are
-#export DEBFULLNAME=YourUserName
-#export DEBEMAIL="name@example.com"
+# if running bash
+if [ -n "$BASH_VERSION" ]; then
+    # include .bashrc if it exists
+    if [ -f "$HOME/.bashrc" ]; then
+        . "$HOME/.bashrc"
+    fi
+fi
