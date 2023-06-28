@@ -19,13 +19,10 @@ alias path='echo -e ${PATH//:/\\n}'
 
 alias publickey='cat ~/.ssh/id_rsa.pub 2> /dev/null || cat ~/.ssh/id_ecdsa.pub 2> /dev/null'
 
-alias apache_vhosts='apachectl -t -D DUMP_VHOSTS'
-
-alias dc='docker-compose'
-
 alias grep='grep --color'
 alias egrep='egrep --color'
 alias fgrep='fgrep --color'
+alias excgrep='grep --exclude-dir=.bzr --exclude-dir=CVS --exclude-dir=.git --exclude-dir=.hg --exclude-dir=.svn --exclude-dir=.idea --exclude-dir=.tox --exclude-dir=.vscode-server '
 
 alias scp='scp -2'
 alias scp-fast='scp -c arcfour'
@@ -34,6 +31,12 @@ alias ssh='ssh -2'
 alias ssh-fast='ssh -c arcfour'
 
 alias check-for-ssh-agent='[ -x "$(command -v ssh-add)" ] && (ssh-add -l >/dev/null 2>&1 || ssh-add)'
+
+alias apache_vhosts='apachectl -t -D DUMP_VHOSTS'
+
+alias ansible='check-for-ssh-agent ; ansible'
+
+alias dc='docker-compose'
 
 alias ping='ping -v'
 
