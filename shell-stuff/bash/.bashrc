@@ -28,6 +28,7 @@ HISTIGNORE='pwd:history:exit:fg:* --help'
 shopt -sq histverify
 
 # include .bash_aliases if it exists
+# see /usr/share/doc/bash-doc/examples in the bash-doc package
 if [ -f ~/.bash_aliases ]; then
     source ~/.bash_aliases
 fi
