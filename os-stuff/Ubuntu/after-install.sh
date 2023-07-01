@@ -46,6 +46,7 @@ apt-get -y --no-install-recommends install -- \
     ssh \
     autossh \
     vim \
+    git \
     dos2unix \
     curl \
     links \
