@@ -1,5 +1,7 @@
 # aliases for bash (you also may place it in your /etc/profile)
 
+alias diff='diff --color'
+
 alias ls='ls --color'
 alias ll='ls -l'
 alias la='ls -la'
