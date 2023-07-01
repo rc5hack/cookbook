@@ -38,6 +38,7 @@ alias check-for-ssh-agent='[ -x "$(command -v ssh-add)" ] && (ssh-add -l >/dev/n
 alias apache_vhosts='apachectl -t -D DUMP_VHOSTS'
 
 alias ansible='check-for-ssh-agent ; ansible'
+alias ansible-playbook='check-for-ssh-agent ; ansible-playbook'
 
 alias dc='docker-compose'
 
