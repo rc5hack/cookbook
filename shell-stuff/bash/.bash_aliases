@@ -28,11 +28,7 @@ alias fgrep='fgrep --color'
 alias excgrep='grep --exclude-dir=.bzr --exclude-dir=CVS --exclude-dir=.git --exclude-dir=.hg --exclude-dir=.svn --exclude-dir=.idea --exclude-dir=.tox --exclude-dir=.vscode-server '
 
 alias scp='scp -2'
-alias scp-fast='scp -c arcfour'
-
 alias ssh='ssh -2'
-alias ssh-fast='ssh -c arcfour'
-
 alias check-for-ssh-agent='[ -x "$(command -v ssh-add)" ] && (ssh-add -l >/dev/null 2>&1 || ssh-add)'
 
 alias apache_vhosts='apachectl -t -D DUMP_VHOSTS'
