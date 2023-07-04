@@ -64,6 +64,9 @@ apt-get -y --no-install-recommends install -- mtr-tiny || apt-get -y --no-instal
 
 if [ ! -s $DISPLAY ]; then apt-get -y install vncviewer; else echo "No X found - so don't install vncviewer"; fi;
 
+# installing x11-utils to get luit(1) to work with non-UTF-8 applications (e.g. ssh to ancient servers) from UTF-8 terminal emulator
+apt-get -y --no-install-recommends install x11-utils
+
 # installing font for Emoji support:
 apt-get -y install ttf-ancient-fonts
 
