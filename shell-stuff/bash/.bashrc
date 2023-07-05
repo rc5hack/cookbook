@@ -28,7 +28,7 @@ HISTFILESIZE=100000
 HISTTIMEFORMAT='%F %T '
 # ignoreboth = ignorespace + ignoredups
 HISTCONTROL=ignoreboth
-HISTIGNORE='pwd:history:hgrep:exit:fg:* --help:cd .:explorer.exe .:code .'
+HISTIGNORE='pwd:history:hgrep:exit:fg:* --help:cd .:explorer.exe .'
 # do not immediately pass the results of history substitution to the shell parser
 # instead, load it to editing buffer, allowing further modification
 shopt -sq histverify
