@@ -25,7 +25,7 @@ alias publickey='cat ~/.ssh/id_rsa.pub 2> /dev/null || cat ~/.ssh/id_ecdsa.pub 2
 alias grep='grep --color'
 alias egrep='egrep --color'
 alias fgrep='fgrep --color'
-alias excgrep='grep --exclude-dir=.bzr --exclude-dir=CVS --exclude-dir=.git --exclude-dir=.hg --exclude-dir=.svn --exclude-dir=.idea --exclude-dir=.tox --exclude-dir=.vscode-server '
+alias excgrep='grep --exclude-dir=.bzr --exclude-dir=CVS --exclude-dir=.git --exclude-dir=.hg --exclude-dir=.svn --exclude-dir=.idea --exclude-dir=.tox --exclude-dir=.vscode-server --exclude-dir=.docker'
 
 alias scp='scp -2'
 alias ssh='ssh -2'
