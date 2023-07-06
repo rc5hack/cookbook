@@ -27,6 +27,8 @@ alias egrep='egrep --color'
 alias fgrep='fgrep --color'
 alias excgrep='grep --exclude-dir=.bzr --exclude-dir=CVS --exclude-dir=.git --exclude-dir=.hg --exclude-dir=.svn --exclude-dir=.idea --exclude-dir=.tox --exclude-dir=.vscode-server --exclude-dir=.docker'
 
+alias mc='[ "$FORCE_MC_GRAPHIC_CHARS_DISABLE" = "1" ] && mc -a || mc'
+
 alias scp='scp -2'
 alias ssh='ssh -2'
 alias check-for-ssh-agent='[ -x "$(command -v ssh-add)" ] && (ssh-add -l >/dev/null 2>&1 || ssh-add)'
