@@ -3,6 +3,12 @@
 # see man ssh_config(5)
 # see https://gist.github.com/rc5hack/6111879 for multiple-SSH-keys config
 
+Host *
+    ForwardAgent no
+    ForwardX11 no
+    StrictHostKeyChecking yes
+    UseRoaming no
+
 Host example
     Hostname example.com
     User gary
@@ -16,9 +22,3 @@ Host github
 
 Host old-freebsd.host
     SetEnv FORCE_MC_GRAPHIC_CHARS_DISABLE="1"
-
-Host *
-    ForwardAgent no
-    ForwardX11 no
-    StrictHostKeyChecking yes
-    UseRoaming no
