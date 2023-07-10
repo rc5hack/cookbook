@@ -14,6 +14,9 @@ Host github
     Hostname github.com
     User git
 
+Host old-freebsd.host
+    SetEnv FORCE_MC_GRAPHIC_CHARS_DISABLE="1"
+
 Host *
     ForwardAgent no
     ForwardX11 no
