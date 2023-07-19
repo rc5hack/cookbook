@@ -52,6 +52,7 @@ apt-get -y --no-install-recommends install -- \
     links \
     whois \
     traceroute \
+    iputils-ping \
     mc \
     screen \
     tmux \
