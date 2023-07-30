@@ -1,3 +1,7 @@
+# Linux screen(1) logs
+hardcopy.*
+screenlog.*
+
 # Numerous always-ignore extensions
 *.diff
 *.err
