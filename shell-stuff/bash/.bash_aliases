@@ -56,8 +56,10 @@ alias gerp='grep'
 alias wcat='wget --no-dns-cache -q -O -'
 alias dog='wcat'
 alias http-headers-get='curl -sS -D - -o /dev/null'
-alias http-headers-get-accept-compressing='http-get-headers -H "Accept-encoding: gzip, deflate, br"'
+alias http-headers-get-accept-compressing='http-headers-get -H "Accept-encoding: gzip, deflate, br"'
+alias http-headers-get-follow-redirects='http-headers-get -L --max-redirs 10'
 alias http-headers-head='curl -I'
+alias http-headers-head-follow-redirects='http-headers-head -L --max-redirs 10'
 
 # ifconfig.me
 alias whatismyip='curl -- http://ifconfig.me/ip'
