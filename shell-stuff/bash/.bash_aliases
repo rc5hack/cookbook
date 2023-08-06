@@ -1,6 +1,8 @@
 # aliases for bash (you also may place it in your /etc/profile)
 
 alias diff='diff --color'
+alias diff-side-by-side-all='diff -y --left-column'
+alias diff-side-by-side-changes-only='diff -y --suppress-common-lines'
 
 alias ls='ls --color'
 alias ll='ls -l'
