@@ -20,6 +20,11 @@ if has('autocmd')
   augroup END
 endif
 
+" Switch paste mode and show current mode
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
+
 " Custom menu allowing re-open current file with different encodings
 set wildmenu
 set wcm=<Tab>
