@@ -95,6 +95,9 @@ apt-get -y install ttf-ancient-fonts
 # disable dnsmasq:
 [ -f /etc/NetworkManager/NetworkManager.conf ] && sed -e '/dns=dnsmasq/ s/^#*/#/' -i /etc/NetworkManager/NetworkManager.conf
 
+# mc settings:
+[ -f ~/.config/mc/ini ] && sed -e 's/use_internal_edit=false/use_internal_edit=true/' -i ~/.config/mc/ini
+
 apt-get -y autoremove
 
 mkdir -p ~/.compose-cache
