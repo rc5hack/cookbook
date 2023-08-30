@@ -41,7 +41,7 @@ alias apache_vhosts='apachectl -t -D DUMP_VHOSTS'
 alias ansible='check-for-ssh-agent ; ansible'
 alias ansible-playbook='check-for-ssh-agent ; ansible-playbook'
 
-alias dc='docker-compose'
+alias dc='resolve_docker_compose(){ docker compose version >/dev/null 2>&1 ; if [ "$?" = "0" ]; then docker compose $@ ; else docker-compose $@ ; fi }; resolve_docker_compose'
 
 alias ping='ping -v'
 
