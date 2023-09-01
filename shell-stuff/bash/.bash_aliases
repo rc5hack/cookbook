@@ -56,7 +56,7 @@ alias untar='tar -xvf'
 alias cd..='cd ..'
 alias gerp='grep'
 
-# web cat
+# web cat and checks
 alias wcat='wget --no-dns-cache -q -O -'
 alias dog='wcat'
 alias http-headers-get='curl -sS -D - -o /dev/null'
@@ -64,6 +64,8 @@ alias http-headers-get-accept-compressing='http-headers-get -H "Accept-encoding:
 alias http-headers-get-follow-redirects='http-headers-get -L --max-redirs 10'
 alias http-headers-head='curl -I'
 alias http-headers-head-follow-redirects='http-headers-head -L --max-redirs 10'
+alias ssl-check-url='resolve_ssl_check_url(){ local url_proto; local url_domain; local url_uri; IFS=/ read -r url_proto _ url_domain url_uri <<<"$@"; local url_port=$(echo "$url_domain" | awk -F":" "{ print \$2 }"); if [ -z "${url_port}" ]; then url_port="443"; url_domain="${url_domain}:443"; fi; echo "SSL certificate for \"$url_domain\" should be valid:"; </dev/null openssl s_client -connect "${url_domain}" 2>/dev/null | openssl x509 -text -noout | grep -oE "Not (Before|After).+"; }; resolve_ssl_check_url'
+alias ssl-check-host='resolve_ssl_check_host(){ local url_domain="$@"; local url_port=$(echo "$url_domain" | awk -F":" "{ print \$2 }"); if [ -z "${url_port}" ]; then url_port="443"; url_domain="${url_domain}:443"; fi; echo "SSL certificate for \"$url_domain\" should be valid:"; </dev/null openssl s_client -connect "${url_domain}" 2>/dev/null | openssl x509 -text -noout | grep -oE "Not (Before|After).+"; }; resolve_ssl_check_host'
 
 # ifconfig.me
 alias whatismyip='curl -- http://ifconfig.me/ip'
