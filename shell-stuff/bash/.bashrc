@@ -57,19 +57,38 @@ fi
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
+# set variable with custom hostname for prompt
+if [ -r ~/.bash_ps_hostname ] && [ -s ~/.bash_ps_hostname ] ; then
+    custom_hostname="@"`head -q -n1 -- ~/.bash_ps_hostname`
+else
+    custom_hostname=''
+fi
 # colorize prompt
 if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
     color_prompt=yes
 fi
 if [ "$color_prompt" = yes ]; then
     if [ "$LOGNAME" = root ] || [ "`id -u`" -eq 0 ] ; then
-        PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+        if [ -r ~/.bash_ps_local ] ; then
+            # local root
+            PS1="${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u${custom_hostname}\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]\$ "
+        else
+            # non-local root
+            PS1="${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u${custom_hostname}\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
+        fi
     else
-        PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+        if [ -r ~/.bash_ps_local ] ; then
+            # local non-root
+            PS1="${debian_chroot:+($debian_chroot)}\[\033[01;30m\]\u${custom_hostname}\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]\$ "
+        else
+            # non-local non-root
+            PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u${custom_hostname}\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
+        fi
     fi
 else
     PS1='${debian_chroot:+($debian_chroot)}\u:\w\$ '
 fi
+unset custom_hostname
 unset color_prompt
 
 # if this is xterm, set title to user@host:dir
