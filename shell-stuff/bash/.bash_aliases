@@ -42,6 +42,8 @@ alias ansible='check-for-ssh-agent ; ansible'
 alias ansible-playbook='check-for-ssh-agent ; ansible-playbook'
 
 alias dc='resolve_docker_compose(){ docker compose version >/dev/null 2>&1 ; if [ "$?" = "0" ]; then docker compose $@ ; else docker-compose $@ ; fi }; resolve_docker_compose'
+alias dc-logs-all='dc logs --no-log-prefix'
+alias dc-logs-tail='dc logs --no-log-prefix --tail 1000'
 
 alias ping='ping -v'
 
