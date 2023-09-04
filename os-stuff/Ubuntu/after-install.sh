@@ -59,8 +59,8 @@ apt-get -y --no-install-recommends install -- \
     vim \
     whois
 
-apt-get -y --no-install-recommends install -- unrar    || apt-get -y --no-install-recommends install -- unrar-free
 apt-get -y --no-install-recommends install -- mtr-tiny || apt-get -y --no-install-recommends install -- mtr
+apt-get -y --no-install-recommends install -- unrar    || apt-get -y --no-install-recommends install -- unrar-free
 
 if [ ! -s $DISPLAY ]; then apt-get -y install vncviewer; else echo "No X found - so don't install vncviewer"; fi;
 
