@@ -47,6 +47,7 @@ apt-get -y --no-install-recommends install -- \
     git \
     htop \
     iputils-ping \
+    lbzip2 \
     links \
     mc \
     openssl libssl-dev \
