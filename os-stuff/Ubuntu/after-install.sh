@@ -38,27 +38,25 @@ dpkg --purge \
 #apt-get -y --force-yes upgrade
 
 apt-get -y --no-install-recommends install -- \
-    ca-certificates \
-    dar \
     acpi \
-    tree \
-    htop \
-    ssh \
-    autossh \
-    vim \
-    git \
-    dos2unix \
+    autossh ssh \
+    ca-certificates \
     curl \
-    links \
-    whois \
-    traceroute \
+    dar \
+    dos2unix \
+    git \
+    htop \
     iputils-ping \
+    links \
     mc \
+    openssl libssl-dev \
+    p7zip-full \
     screen \
     tmux \
-    p7zip-full \
-    openssl \
-    libssl-dev
+    traceroute \
+    tree \
+    vim \
+    whois
 
 apt-get -y --no-install-recommends install -- unrar    || apt-get -y --no-install-recommends install -- unrar-free
 apt-get -y --no-install-recommends install -- mtr-tiny || apt-get -y --no-install-recommends install -- mtr
