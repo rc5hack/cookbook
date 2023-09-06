@@ -46,7 +46,7 @@ apt-get -y --no-install-recommends install -- \
     dos2unix \
     git \
     htop \
-    iputils-ping \
+    iputils-ping net-tools \
     lbzip2 \
     links \
     mc \
