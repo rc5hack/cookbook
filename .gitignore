@@ -15,6 +15,7 @@ screenlog.*
 *.sass-cache
 
 # OS or Editor folders
+.netrc
 .DS_Store
 Thumbs.db
 Desktop.ini
