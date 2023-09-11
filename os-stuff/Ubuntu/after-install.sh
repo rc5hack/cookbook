@@ -40,6 +40,7 @@ dpkg --purge \
 apt-get -y --no-install-recommends install -- \
     acpi \
     autossh ssh \
+    bzip2 lbzip2 \
     ca-certificates \
     curl \
     dar \
@@ -47,7 +48,6 @@ apt-get -y --no-install-recommends install -- \
     git \
     htop \
     iputils-ping net-tools \
-    lbzip2 \
     links \
     mc \
     openssl libssl-dev \
