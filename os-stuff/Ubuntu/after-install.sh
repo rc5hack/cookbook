@@ -52,6 +52,7 @@ apt-get -y --no-install-recommends install -- \
     mc \
     openssl libssl-dev \
     p7zip-full \
+    procps \
     screen \
     tmux \
     traceroute \
