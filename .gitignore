@@ -19,6 +19,7 @@ screenlog.*
 .DS_Store
 Thumbs.db
 Desktop.ini
+*:Zone.Identifier
 .cache
 .project
 .settings
