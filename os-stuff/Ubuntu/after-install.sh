@@ -39,6 +39,7 @@ dpkg --purge \
 
 apt-get -y --no-install-recommends install -- \
     acpi \
+    apache2-utils \
     autossh ssh \
     bzip2 lbzip2 \
     ca-certificates \
