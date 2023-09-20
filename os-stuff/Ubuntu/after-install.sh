@@ -50,6 +50,7 @@ apt-get -y --no-install-recommends install -- \
     htop \
     iputils-ping net-tools \
     links \
+    lsb-release \
     mc \
     openssl libssl-dev \
     p7zip-full \
