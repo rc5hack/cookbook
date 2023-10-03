@@ -27,5 +27,9 @@
     ci = commit
     co = checkout
     st = status
+    clone-with-submodules = "!git clone --recurse-submodules"
+    fetch-with-submodules = "!git fetch --recurse-submodules"
+    pull-with-submodules = "!git pull --recurse-submodules"
+    push-with-submodules = "!git push --recurse-submodules=on-demand"
 [push]
     default = simple
