@@ -22,8 +22,9 @@
     prettylog = "!git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
     ignored = "!git ls-files --others --exclude-standard"
     undo = "!git reset --soft HEAD^"
-    st = status
-    co = checkout
+    br = branch
     ci = commit
+    co = checkout
+    st = status
 [push]
     default = simple
