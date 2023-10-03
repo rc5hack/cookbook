@@ -20,8 +20,9 @@
     accept-ours = "!f() { files=\"$@\"; [ -z $files ] && files='.'; git checkout --ours -- $files; git add -u $files; }; f"
     accept-theirs = "!f() { files=\"$@\"; [ -z $files ] && files='.'; git checkout --theirs -- $files; git add -u $files; }; f"
     prettylog = "!git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
-    ignored = "!git ls-files --others --exclude-standard"
     undo = "!git reset --soft HEAD^"
+    untracked = "!git ls-files --others"
+    untracked-not-ignored = "!git ls-files --others --exclude-standard"
     br = branch
     ci = commit
     co = checkout
