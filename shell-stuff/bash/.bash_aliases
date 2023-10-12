@@ -1,6 +1,8 @@
 # aliases for bash (you also may place it in your /etc/profile)
 
 alias diff='diff --color'
+alias zdiff='zdiff --color'
+alias bzdiff='bzdiff --color'
 alias diff-side-by-side-all='diff -y --left-column'
 alias diff-side-by-side-changes-only='diff -y --suppress-common-lines'
 
@@ -25,8 +27,15 @@ alias path='echo -e ${PATH//:/\\n}'
 alias publickey='cat ~/.ssh/id_rsa.pub 2> /dev/null || cat ~/.ssh/id_ecdsa.pub 2> /dev/null'
 
 alias grep='grep --color'
+alias zgrep='zgrep --color'
+alias bzgrep='bzgrep --color'
 alias egrep='egrep --color'
+alias zegrep='zegrep --color'
+alias bzegrep='bzegrep --color'
 alias fgrep='fgrep --color'
+alias zfgrep='zfgrep --color'
+alias bzfgrep='bzfgrep --color'
+alias rgrep='rgrep --color'
 alias excgrep='grep --exclude-dir=.bzr --exclude-dir=CVS --exclude-dir=.git --exclude-dir=.hg --exclude-dir=.svn --exclude-dir=.idea --exclude-dir=.tox --exclude-dir=.vscode-server --exclude-dir=.docker'
 
 alias mc='[ "$FORCE_MC_GRAPHIC_CHARS_DISABLE" = "1" ] && mc -a || mc'
