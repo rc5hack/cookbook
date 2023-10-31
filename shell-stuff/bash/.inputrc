@@ -11,3 +11,6 @@
 "\eOC": forward-word
 "\e[1;5D": backward-word
 "\eOD": backward-word
+
+# let Ctrl-Backspace delete words:
+"\C-h": backward-kill-word
