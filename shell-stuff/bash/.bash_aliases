@@ -77,8 +77,23 @@ alias http-headers-get-accept-compressing='http-headers-get -H "Accept-encoding:
 alias http-headers-get-follow-redirects='http-headers-get -L --max-redirs 10'
 alias http-headers-head='curl -I'
 alias http-headers-head-follow-redirects='http-headers-head -L --max-redirs 10'
-alias ssl-check-url='resolve_ssl_check_url(){ local url_proto; local url_domain; local url_uri; IFS=/ read -r url_proto _ url_domain url_uri <<<"$@"; local url_port=$(echo "$url_domain" | awk -F":" "{ print \$2 }"); if [ -z "${url_port}" ]; then url_port="443"; url_domain="${url_domain}:443"; fi; echo "SSL certificate for \"$url_domain\" should be valid:"; </dev/null openssl s_client -connect "${url_domain}" 2>/dev/null | openssl x509 -text -noout | grep -oE "Not (Before|After).+"; }; resolve_ssl_check_url'
-alias ssl-check-host='resolve_ssl_check_host(){ local url_domain="$@"; local url_port=$(echo "$url_domain" | awk -F":" "{ print \$2 }"); if [ -z "${url_port}" ]; then url_port="443"; url_domain="${url_domain}:443"; fi; echo "SSL certificate for \"$url_domain\" should be valid:"; </dev/null openssl s_client -connect "${url_domain}" 2>/dev/null | openssl x509 -text -noout | grep -oE "Not (Before|After).+"; }; resolve_ssl_check_host'
+alias ssl-check-cert='
+resolve_ssl_check_cert(){
+    if [ -z "$@" ]; then
+        echo "Usage: ssl-check-cert DOMAIN_OR_URL";
+        return 1;
+    elif (echo "$@" | grep -iPq "^(?:https?:\/\/(?:www\.|(?!www))[a-z0-9][a-z0-9-]+[a-z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-z0-9]+\.[^\s]{2,})$"); then
+        local url_proto; local url_domain; local url_uri;
+        IFS=/ read -r url_proto _ url_domain url_uri <<<"$@";
+    else
+        local url_domain="$@";
+    fi
+    local url_port=$(echo "${url_domain}" | awk -F":" "{ print \$2 }");
+    if [ -z "${url_port}" ]; then url_port="443"; url_domain="${url_domain}:443"; fi;
+    echo "\"${url_domain}\" SSL certificate properties:"; </dev/null timeout 5 openssl s_client -connect "${url_domain}" 2>/dev/null |
+    openssl x509 -text -noout |
+    /usr/bin/env grep -Eio "(:?Issuer:|Validity|Not (:?Before|After)|Subject:|Public Key Algorithm:|Public.Key:).*";
+}; resolve_ssl_check_cert'
 
 # ifconfig.me
 alias whatismyip='curl -- http://ifconfig.me/ip'
