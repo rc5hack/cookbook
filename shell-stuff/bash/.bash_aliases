@@ -96,8 +96,10 @@ resolve_ssl_check_cert(){
 }; resolve_ssl_check_cert'
 
 # ifconfig.me
-alias whatismyip='curl -- http://ifconfig.me/ip'
-alias whatismyhost='curl -- http://ifconfig.me/host'
+alias whatismyhost='curl -sSw"\n" -L --max-redirs 3 -- http://ifconfig.me/host'
+alias whatismyip='  curl -sSw"\n" -L --max-redirs 3 -- http://ifconfig.me/ip'
+alias whatismyipv4='curl -sSw"\n" -L --max-redirs 3 --ipv4 -- http://ifconfig.me/ip'
+alias whatismyipv6='curl -sSw"\n" -L --max-redirs 3 --ipv6 -- http://ifconfig.me/ip'
 
 # human-friendly datetime
 alias now='date +"%T"'
