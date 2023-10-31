@@ -39,6 +39,11 @@ alias rgrep='rgrep --color'
 
 alias errgrep='grep -aiE "error|fail|fault|timeout|traceback|fatal|panic" '
 alias excgrep='grep --exclude-dir=.ansible --exclude-dir=.bzr --exclude-dir=CVS --exclude-dir=.git --exclude-dir=.hg --exclude-dir=.svn --exclude-dir=.idea --exclude-dir=.tox --exclude-dir=.vscode-server --exclude-dir=.docker'
+alias grep-ssh-config='
+resolve_ssl_check_cert(){
+    grep -EiA1 "^\s*Host\s+.*$1.*$"     ~/.ssh/config | GREP_COLOR=36 grep -i -e"^" -e"--" -e"$1" ||
+    grep -EiB1 "^\s*HostName\s+.*$1.*$" ~/.ssh/config | GREP_COLOR=36 grep -i -e"^" -e"--" -e"$1"
+}; resolve_ssl_check_cert'
 
 alias mc='[ "$FORCE_MC_GRAPHIC_CHARS_DISABLE" = "1" ] && mc -a || mc'
 alias mcedit='[ "$FORCE_MC_GRAPHIC_CHARS_DISABLE" = "1" ] && mcedit -a || mcedit'
