@@ -58,6 +58,7 @@ apt-get -y --no-install-recommends install -- \
     rsync \
     screen \
     tmux \
+    tcpdump \
     traceroute \
     tree \
     vim \
