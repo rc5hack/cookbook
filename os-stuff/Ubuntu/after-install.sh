@@ -43,7 +43,7 @@ apt-get -y --no-install-recommends install -- \
     autossh ssh \
     bzip2 lbzip2 \
     ca-certificates \
-    curl \
+    curl wget \
     dar \
     dos2unix \
     git \
