@@ -1,5 +1,10 @@
 # aliases for bash (you also may place it in your /etc/profile)
 
+alias reboot='  DELAY_TIMEOUT=10 && echo && echo "Performing \"reboot\"   command in $DELAY_TIMEOUT seconds - press Ctrl+C to abort during countdown!" && echo && DELAY_START="$(($(date +%s) + $DELAY_TIMEOUT))" && while [ "$DELAY_START" -ge `date +%s` ]; do TIME_LEFT="$(( $DELAY_START - `date +%s` ))" && echo -e "\r\033[1A\033[0Kcountdown: $(date -u -d "@$TIME_LEFT" +%M:%S)" && sleep 0.25 ; done && echo "Command was NOT aborted. Continue." && reboot'
+alias shutdown='DELAY_TIMEOUT=10 && echo && echo "Performing \"shutdown\" command in $DELAY_TIMEOUT seconds - press Ctrl+C to abort during countdown!" && echo && DELAY_START="$(($(date +%s) + $DELAY_TIMEOUT))" && while [ "$DELAY_START" -ge `date +%s` ]; do TIME_LEFT="$(( $DELAY_START - `date +%s` ))" && echo -e "\r\033[1A\033[0Kcountdown: $(date -u -d "@$TIME_LEFT" +%M:%S)" && sleep 0.25 ; done && echo "Command was NOT aborted. Continue." && shutdown'
+alias halt='    DELAY_TIMEOUT=10 && echo && echo "Performing \"halt\"     command in $DELAY_TIMEOUT seconds - press Ctrl+C to abort during countdown!" && echo && DELAY_START="$(($(date +%s) + $DELAY_TIMEOUT))" && while [ "$DELAY_START" -ge `date +%s` ]; do TIME_LEFT="$(( $DELAY_START - `date +%s` ))" && echo -e "\r\033[1A\033[0Kcountdown: $(date -u -d "@$TIME_LEFT" +%M:%S)" && sleep 0.25 ; done && echo "Command was NOT aborted. Continue." && halt'
+alias poweroff='DELAY_TIMEOUT=10 && echo && echo "Performing \"poweroff\" command in $DELAY_TIMEOUT seconds - press Ctrl+C to abort during countdown!" && echo && DELAY_START="$(($(date +%s) + $DELAY_TIMEOUT))" && while [ "$DELAY_START" -ge `date +%s` ]; do TIME_LEFT="$(( $DELAY_START - `date +%s` ))" && echo -e "\r\033[1A\033[0Kcountdown: $(date -u -d "@$TIME_LEFT" +%M:%S)" && sleep 0.25 ; done && echo "Command was NOT aborted. Continue." && poweroff'
+
 alias diff='diff --color'
 alias zdiff='zdiff --color'
 alias bzdiff='bzdiff --color'
