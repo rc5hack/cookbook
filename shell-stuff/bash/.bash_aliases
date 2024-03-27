@@ -31,6 +31,10 @@ alias path='echo -e ${PATH//:/\\n}'
 
 alias publickey='cat ~/.ssh/id_rsa.pub 2> /dev/null || cat ~/.ssh/id_ecdsa.pub 2> /dev/null'
 
+alias pwgen-custom="pwgen -1cnys --remove-chars=\"\\\$\\\`\\\"'&#!()[]/\\\*+:;=?@%,.~-^|{}<>\" "
+alias pwgen-human="pwgen-custom 16"
+alias pwgen-dsn="pwgen -1cnys --remove-chars=\"\\\$\\\`\\\"'&#!()[]/\\\*+:;=?@%,\" 64"
+
 alias grep='grep --color'
 alias zgrep='zgrep --color'
 alias bzgrep='bzgrep --color'
