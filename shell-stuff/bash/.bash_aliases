@@ -19,6 +19,8 @@ alias lsa='ls -ld .*'
 alias l='ls -alF'
 alias lf='ls -CF'
 
+alias prettytree='tree -alpugh --du'
+
 alias df='df -h'
 alias du='du -h'
 
