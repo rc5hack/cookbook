@@ -45,7 +45,9 @@ if [ -f ~/.bash_aliases ]; then
     source ~/.bash_aliases
 fi
 if [ -d ~/.bash_aliases.d/ ]; then
-    for aliases_file in "$(find ~/.bash_aliases.d/ -maxdepth 1 -type f -print -quit)"; do source $aliases_file; done
+    for aliases_file in $(find ~/.bash_aliases.d/ -maxdepth 1 -type f -print); do
+        source "$aliases_file"
+    done
 fi
 
 # make less more friendly for non-text input files, see lesspipe(1)
