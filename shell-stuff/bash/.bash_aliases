@@ -62,6 +62,8 @@ alias mcedit='[ "$FORCE_MC_GRAPHIC_CHARS_DISABLE" = "1" ] && mcedit -a || mcedit
 alias scp='scp -2'
 alias ssh='ssh -2'
 alias ssh-force-password-auth='ssh -o PubkeyAuthentication=no -o GSSAPIAuthentication=no -o PasswordAuthentication=yes'
+alias ssh-no-password-auth='ssh -o PasswordAuthentication=no'
+alias ssh-no-host-keychecking='ssh -o StrictHostKeychecking=no -o UserKnownHostsFile=/dev/null'
 alias check-for-ssh-agent='[ -x "$(command -v ssh-add)" ] && (ssh-add -l >/dev/null 2>&1 || ssh-add)'
 
 alias apache_vhosts='apachectl -t -D DUMP_VHOSTS'
