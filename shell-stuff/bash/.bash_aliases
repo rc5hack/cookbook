@@ -66,7 +66,7 @@ alias ssh-no-password-auth='ssh -o PasswordAuthentication=no'
 alias ssh-no-host-keychecking='ssh -o StrictHostKeychecking=no -o UserKnownHostsFile=/dev/null'
 alias check-for-ssh-agent='[ -x "$(command -v ssh-add)" ] && (ssh-add -l >/dev/null 2>&1 || ssh-add)'
 
-alias apache_vhosts='apachectl -t -D DUMP_VHOSTS'
+alias apache-vhosts='apachectl -t -D DUMP_VHOSTS'
 
 alias ansible='check-for-ssh-agent ; ansible'
 alias ansible-playbook='check-for-ssh-agent ; ansible-playbook'
@@ -131,7 +131,7 @@ alias nicemake='nice -n1 make'
 alias r='fc -s'
 
 # screen(1) wrapper
-alias alive_screen='
+alias alive-screen='
 if [ -n "`screen -ls | grep ALIVE_SCREEN`" ]; then
     if [ -n "`screen -ls | grep ALIVE_SCREEN | grep Attached`" ]; then
         if [ -z "`echo $TERMCAP | grep screen`" ]; then
