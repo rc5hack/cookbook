@@ -146,9 +146,6 @@ else
     screen -S ALIVE_SCREEN ;
 fi'
 
-# just a kidding
-alias bitch,='sudo'
-
 # self-killing
 alias suicide='[ -n "$SSH_AUTH_SOCK" ] && [ -x /usr/bin/ssh-agent ] && eval `/usr/bin/ssh-agent -k`; kill -9 $$'
 
