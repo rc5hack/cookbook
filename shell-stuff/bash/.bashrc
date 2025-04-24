@@ -21,7 +21,7 @@ function start_ssh_agent {
     if [ -x "$(command -v ssh-agent)" ]; then
         echo "Initializing new SSH agent..."
         (umask 077; ssh-agent -s > "$SSH_AGENT_ENV")
-        source "$SSH_AGENT_ENV" > /dev/null
+        source "$SSH_AGENT_ENV" 2> /dev/null
     else
         echo "Can't initialize SSH agent (executable not found), consider installing it."
     fi
