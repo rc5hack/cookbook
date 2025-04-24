@@ -9,10 +9,27 @@ case $- in
       *) return;;
 esac
 
-# automatically start ssh-agent on login
-if [ -z "$SSH_AUTH_SOCK" ]; then
-    [ -x "$(command -v ssh-agent)" ] && eval `ssh-agent -s`
-    trap "kill $SSH_AGENT_PID" 0
+# Automatically start ssh-agent on login, if not already running
+SSH_AGENT_ENV="$HOME/.ssh/ssh-agent.env"
+function check_ssh_agent {
+    [[ -n "$SSH_AUTH_SOCK" ]] && \
+    [[ -S "$SSH_AUTH_SOCK" ]] && \
+    ps -p "$SSH_AGENT_PID" > /dev/null 2>&1
+}
+function start_ssh_agent {
+    if [ -x "$(command -v ssh-agent)" ]; then
+        echo "Initializing new SSH agent..."
+        (umask 077; ssh-agent -s > "$SSH_AGENT_ENV")
+        source "$SSH_AGENT_ENV" > /dev/null
+    else
+        echo "Can't initialize SSH agent (executable not found), consider installing it."
+    fi
+}
+if [ -f "$SSH_AGENT_ENV" ] && [ -r "$SSH_AGENT_ENV" ] && [ -s "$SSH_AGENT_ENV" ]; then
+    source "$SSH_AGENT_ENV" > /dev/null
+    check_ssh_agent || start_ssh_agent
+else
+    start_ssh_agent
 fi
 
 # SSH agent admitted failure to sign using the key workaround
