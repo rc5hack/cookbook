@@ -35,10 +35,10 @@ export EDITOR
 exists colordiff && alias diff='colordiff'
 
 if [ "$(id -ur)" = "0" ]; then
-    PS1='\[\033[1;31m\][\u@\h \[\033[1;34m\]\w\[\033[1;31m\]]\$\[\033[0m\] '
+#     PS1='\[\033[1;31m\][\u@\h \[\033[1;34m\]\w\[\033[1;31m\]]\$\[\033[0m\] '
     export HOME=/root
-else
-    PS1='\[\033[1;32m\][\u@\h \[\033[1;34m\]\w\[\033[1;32m\]]\$\[\033[0m\] '
+# else
+#     PS1='\[\033[1;32m\][\u@\h \[\033[1;34m\]\w\[\033[1;32m\]]\$\[\033[0m\] '
 fi
 
 # include .bashrc if exists and we aren't in login shell
