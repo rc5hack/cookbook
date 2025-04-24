@@ -148,9 +148,6 @@ else
     screen -S ALIVE_SCREEN ;
 fi'
 
-# self-killing
 alias suicide='kill -9 $$'
 alias murder-suicide='[ -n "$SSH_AUTH_SOCK" ] && [ -x /usr/bin/ssh-agent ] && eval `/usr/bin/ssh-agent -k`; kill -9 $$'
-
-# take French leave
-alias french_exit='unset HISTFILE && exit'
+alias french-leave='unset HISTFILE && exit'
