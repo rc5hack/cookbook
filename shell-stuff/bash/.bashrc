@@ -14,7 +14,8 @@ SSH_AGENT_ENV="$HOME/.ssh/ssh-agent.env"
 function check_ssh_agent {
     [[ -n "$SSH_AUTH_SOCK" ]] && \
     [[ -S "$SSH_AUTH_SOCK" ]] && \
-    ps -p "$SSH_AGENT_PID" > /dev/null 2>&1
+    ps -p "$SSH_AGENT_PID" > /dev/null 2>&1 && \
+    echo "SSH agent is running, PID '$SSH_AGENT_PID'"
 }
 function start_ssh_agent {
     if [ -x "$(command -v ssh-agent)" ]; then
@@ -31,10 +32,6 @@ if [ -f "$SSH_AGENT_ENV" ] && [ -r "$SSH_AGENT_ENV" ] && [ -s "$SSH_AGENT_ENV" ]
 else
     start_ssh_agent
 fi
-
-# SSH agent admitted failure to sign using the key workaround
-# see https://bugs.launchpad.net/ubuntu/+source/gnome-keyring/+bug/201786
-#export SSH_AUTH_SOCK=0
 
 # Skip the rest if we aren't in interactive shell
 if [ -z "${PS1}" -a "$-" != "*i*" ]; then return; fi
