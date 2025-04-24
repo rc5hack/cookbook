@@ -53,7 +53,7 @@ shopt -s histappend
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# include .bash_aliases if it exists
+# include .bash_aliases if exists
 # see /usr/share/doc/bash-doc/examples in the bash-doc package
 if [ -f ~/.bash_aliases ]; then
     source ~/.bash_aliases
@@ -119,7 +119,7 @@ xterm*|rxvt*)
     ;;
 esac
 
-# include bash_completion script if it exists
+# include bash_completion script if exists
 if [ -f ~/.bash_completion ]; then
     source ~/.bash_completion
 elif [ -f /usr/share/bash-completion/bash_completion ]; then

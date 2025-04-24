@@ -15,7 +15,7 @@ export LC_NUMERIC=POSIX
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
+    # include .bashrc if exists
     if [ -f "$HOME/.bashrc" ]; then
         . "$HOME/.bashrc"
     fi

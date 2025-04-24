@@ -12,16 +12,16 @@ bash(1) startup
 When bash(1) starts, it executes the commands in a variety of scripts.
 
 When **started as an interactive login shell,**
-* Bash reads and executes /etc/profile (if it exists).
+* Bash reads and executes /etc/profile (if exists).
 * After that, it looks for ~/.bash_profile, ~/.bash_login, and ~/.profile in that order, and reads and executes the first one that exists and is readable.
 
 Since everything you run from your login shell inherits the login shell's environment, you should put all your environment variables in there.
 
 When a login shell exits,
-* Bash reads and executes ~/.bash_logout (if it exists).
+* Bash reads and executes ~/.bash_logout (if exists).
 
 When **started as an interactive non-login shell,**
-* Bash reads and executes ~/.bashrc (if it exists). This may be inhibited by using the --norc option.
+* Bash reads and executes ~/.bashrc (if exists). This may be inhibited by using the --norc option.
 
 Once you log in, you can run several more shells. Your environment variables were passed along in the whole chain, so your non-login shells don't need to load them anymore. So define here everything that only applies to bash. That's functions, aliases, bash-only variables like HISTSIZE (this is not an environment variable, don't export it!), shell options with set and shopt, etc.
 

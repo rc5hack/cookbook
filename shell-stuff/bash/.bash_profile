@@ -1,6 +1,6 @@
 # ~/.bash_profile: executed by bash(1) for login shells.
 
-# include .profile if it exists
+# include .profile if exists
 if [ -f ~/.profile ]; then
     source ~/.profile
 fi
@@ -41,12 +41,13 @@ else
     PS1='\[\033[1;32m\][\u@\h \[\033[1;34m\]\w\[\033[1;32m\]]\$\[\033[0m\] '
 fi
 
-# include .bashrc if it exists
-if [ -f ~/.bashrc ]; then
+# include .bashrc if exists and we aren't in login shell
+# (this is to avoid double sourcing .bashrc)
+if [[ -f ~/.bashrc ]] && ! shopt -q login_shell; then
     source ~/.bashrc
 fi
 
-# include custom motd if it exists
+# include custom motd if exists
 if [ -f ~/bin/motd.sh ]; then
     source ~/bin/motd.sh
 fi
