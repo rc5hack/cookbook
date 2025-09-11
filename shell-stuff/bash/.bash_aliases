@@ -50,6 +50,8 @@ alias rgrep='rgrep --color'
 
 alias errgrep='grep -aiP "error|fail|(?<!de)fault|timeout|traceback|fatal|panic" '
 alias erregrep='grep -aiE "error|fail|fault|timeout|traceback|fatal|panic" '
+alias noerrgrep='grep -aviP "error|fail|(?<!de)fault|timeout|traceback|fatal|panic" '
+alias noerregrep='grep -aviE "error|fail|fault|timeout|traceback|fatal|panic" '
 alias excgrep='grep --exclude-dir=.ansible --exclude-dir=.bzr --exclude-dir=CVS --exclude-dir=.git --exclude-dir=.hg --exclude-dir=.svn --exclude-dir=.idea --exclude-dir=.tox --exclude-dir=.vscode-server --exclude-dir=.docker'
 alias grep-ssh-config='
 resolve_grep_ssh_config(){
