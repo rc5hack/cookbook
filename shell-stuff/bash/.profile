@@ -7,7 +7,8 @@ exists() {
 }
 
 # PATH manipulations
-[ -d "$HOME/bin" ] && echo -n "$PATH" | grep -vq "$HOME/bin:" && PATH="$HOME/bin:$PATH"
+[ -d "$HOME/bin" ] && [[ ":$PATH:" != *":$HOME/bin:"* ]] && PATH="$HOME/bin:$PATH"
+[ -d "$HOME/.local/bin" ] && [[ ":$PATH:" != *":$HOME/.local/bin:"* ]] && PATH="$HOME/.local/bin:$PATH"
 [ -d "/opt/java" ] && PATH="$PATH:/opt/java/bin"
 
 # locale for formatting numbers - keep POSIX (default)
