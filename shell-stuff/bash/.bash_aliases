@@ -133,6 +133,9 @@ alias nicemake='nice -n1 make'
 # redo previous command
 alias r='fc -s'
 
+# pipe stdout to Windows clipboard (WSL)
+alias winclip='iconv -f UTF-8 -t UTF-16LE | clip.exe'
+
 # screen(1) wrapper
 alias alive-screen='
 if [ -n "`screen -ls | grep ALIVE_SCREEN`" ]; then
